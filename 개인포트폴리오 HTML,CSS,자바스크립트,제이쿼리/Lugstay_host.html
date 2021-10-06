@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Team4</title>
+    <link rel="stylesheet" href="Hostpage_style.css">
+    <script src="https://code.jquery.com/ui/1.10.4/jquery-ui.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+
+        $(document).ready(function () {
+            $(".x_sign").on("click", function () {
+                $(".header").slideUp();
+            });
+        });
+    </script>
+</head>
+
+<body>
+    <div id="fixed">
+        <header class="header">
+            <!-- 언어선택 배너 !-->
+            <div class="lang-container">
+                <div class="header1"><img src="./호스팅페이지Image/icon_global.png"> <span>Select your Language</span>
+                    <div class="languages">
+                        <select>
+                            <option value="한국어" selected>한국어</option>
+                            <option value="English(US)">English(US)</option>
+                            <option value="日本語">日本語</option>
+                        </select>
+                        <input type="button" value="Save">
+                        <div class="sign-container">
+                            <a href="#none" class="x_sign"><img src="./호스팅페이지Image/x_sign.png"
+                                    onclick="closeBanner()"></a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </header> <!-- 언어선택 배너 !-->
+        <!-- 로고포함 헤더 !-->
+        <header id="logoHeader">
+            <div id="logo">
+                <img class="logo1" src="./호스팅페이지Image/logo.png"><span class="brandFont"><a href="./Lugstay_main.html"
+                        style="text-decoration:none; color:#717171; display: inline-block; margin-left: -10px; margin-top: 10px;">LugStay</a></span>
+                <img class="logo2" src="./호스팅페이지Image//menulogo.png">
+                <ul class="menu">
+                    <li class="null1"><a href="./물품보관하러가기.html" style="text-decoration: none; color:#212532;">물품 보관하러
+                            가기</a>
+                    </li>
+                    <li class="null2"><a href="./Lugstay_sbs.html" style="text-decoration: none; color:#212532;">서비스
+                            가이드</a></li>
+                    <li class=" null3"><a href="./자주찾는질문.html" style="text-decoration: none; color:#212532;">자추 찾는
+                            질문</a>
+                    </li>
+                </ul>
+                <ul class=" host">
+                    <li class="host1"><a href="./Lugstay_host.html" style="text-decoration: none; color:#212532;">호스트
+                            신청하기</a></li>
+                    <li class=" host2">로그인</li>
+                </ul>
+            </div>
+    </div>
+
+    </header>
+
+
+    </header>
+    <section id="first-part">
+        <div id="BackgroundImage">
+            <div class="container">
+                <div class="header-container">
+                    <div class="text-area">
+                        <div class="content">
+                            상점의 빈 공간을 공유해 추가 수익을<br>
+                            창출하고, 무료로 상점을 홍보하세요
+                        </div>
+                    </div>
+                </div>
+                <div class="body">
+                    <div class="button-area">
+                        <button class="button" onClick="location.href='hostSurvey.html'">호스트 신청하기</button>
+                    </div>
+                </div>
+            </div>
+            </divd>
+    </section>
+
+    <div id="BackgroundBenefits">
+        <div class="bene-container1">
+            <div class="text-header">
+                <div class="benefit">
+                    럭스테이의 호스트라면<br>
+                    누구나 누릴 수 있어요!
+                </div>
+            </div>
+            <div class="text-body">
+                <div class=text-container>
+                    <ul>
+                        <li>
+                            <div class="container">
+                                <div class="benefit-title">물품 보관 수익</div>
+                                <img src="./호스팅페이지Image/물품보관수익1.png">
+                                <div class="text1">고객의 물품 보관을 통한<br>추가 수익 창출</div>
+                            </div>
+                        </li>
+                        <li>
+                            <div class="container">
+                                <div class="benefit-title">고객 유치</div>
+                                <img src="./호스팅페이지Image/고객유치1.png">
+                                <div class="text1">물품 보관 및 수령을 위한<br>매장 방문 증대</div>
+                        </li>
+                        <li>
+                            <div class="container">
+                                <div class="benefit-title">홍보 효과</div>
+                                <img src="./호스팅페이지Image/홍보효과1.png">
+                                <div class="text1">매장 노출 및 고객 방문에<br>따른 프로모션 및 판매 기회<br>증대</div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <section id="noMoney">
+        <p><img class="nocost" src="./호스팅페이지Image/노코스트이미지.png"></p>
+        <span class="nocost1">어떠한 비용도 들지 않아요!</span><br>
+        <span class="nocost2">가입비 <label class="moo">無</label>, 해지비 <label class="moo">無</label>, 설치물품 <label
+                class="moo">無</label></span>
+    </section>
+
+    <section id="example">
+        <div class="example1">
+            실제로 이미<br>
+            <strong>월 50만원 이상 / 연 600만원 이상</strong><br>
+            수익을 얻고 계신 분들이 있습니다.
+        </div>
+        <div class="example2-container">
+            <div class="example2">
+                <span> &#8251;실제 매장 사례 &#8251;</span>
+            </div>
+            <div class="table">
+                <div class="table-row">
+                    <div class="cell-blue">비용</div>
+                    <div class="cell-white">0원</div>
+                    <div class="cell-white">가입,해지,앱 무료</div>
+                </div>
+                <div class="table-row">
+                    <div class="cell-blue">수익(월)</div>
+                    <div class="cell-white">500,000원</div>
+                    <div class="cell-white">월 평균수익 (하루5건)</div>
+                </div>
+                <div class="table-row">
+                    <div class="cell-blue">수익(연)</div>
+                    <div class="cell-white">6,000,000원</div>
+                    <div class="cell-white">50만 X 12개월</div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="example-image">
+        <div class="image-container">
+            <div class="table">
+                <div class="table-row1">
+                    <div class="table-cell1"><img src="./호스팅페이지Image/실제사례11.jpg">
+                        <div class="caption-left-top">
+                            자체창고
+                        </div>
+                    </div>
+                    <div class="table-cell2"><img src="./호스팅페이지Image/실제사례22.jpg">
+                        <div class="caption-right-top">
+                            캐비닛
+                        </div>
+                    </div>
+                </div>
+                <div class="table-row2">
+                    <div class="table-cell3"><img src="./호스팅페이지Image/실제사례33.jpg">
+                        <div class="caption-left-bottom">
+                            창고
+                        </div>
+                    </div>
+                    <div class="table-cell4"><img src="./호스팅페이지Image/실제사례44.jpg">
+                        <div class="caption-right-bottom">
+                            직원 휴게실
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="container">
+                <div class="text">물품을 보관할 수 있는<br>별도의 공간만 있다면<br> 가능합니다.</div>
+                <div class="example">&#8251;실제 매장 사례 &#8251;</div>
+            </div>
+        </div>
+
+    </section>
+    <div id="quote-section">
+        <div class="container1">
+            <div class="container2">
+                <div class="text">전국 <strong>1,000여개</strong> 상점주 분들께서<br>
+                    이미 함께 하고 계십니다</div>
+                <div class="date">(2020년 12월 기준)</div>
+            </div>
+            <div class="quotes-container">
+
+                <div class="quote1">
+                    <div class="text">"무료로 매장을 홍보할 수 있으니 안 할 이유가 없죠"</div>
+                </div>
+                <div class="quote2">
+                    <div class="text">"물품을 맡기고, 찾아갈 때 저희상품도 구매했어요"</div>
+                </div>
+
+                <div class="quote3">
+                    <div class="text">"반신반의 했는데 정말로 물품 보관 손님이 와서 신기했어요"</div>
+                </div>
+                <div class="quote4">
+                    <div class="text">"물품을 맡기고, 찾아갈 때 저희상품도 구매했어요"</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <section id="co-work">
+        <div class="container">
+            <table>
+                <tr>
+                    <td><img style="height:55" src="./호스팅페이지Image/서울관광재단.png"></td>
+                    <td><img src="./호스팅페이지Image/한국관광공사.jpg"></td>
+                </tr>
+                <tr>
+                    <td><img src="./호스팅페이지Image/sk텔레콤.png"></td>
+                    <td><img src="./호스팅페이지Image/중소벤처기업부.png"></td>
+                </tr>
+                <tr>
+                    <td><img style="height:70" src="./호스팅페이지Image/공유서울.png"></td>
+                    <td><img style="height:70" src="./호스팅페이지Image/인천국제공항1.png"></td>
+                </tr>
+            </table>
+            <div class="textcontainer">
+                <div class="text">
+                    <strong>럭스테이</strong>는<br>
+                    서울시, 한국관광공사, 인천공항공사,<br>
+                    서울관광재단 등과 함께하는<br>
+                    <strong>믿을 수 있는 벤처기업</strong> 입니다.
+                </div>
+            </div>
+        </div>
+    </section>
+    <section id="last-section">
+        <div class=container>
+            <div class="lastheader">
+                <div class="text">언제든지 편하게<br>
+                    상담하고 신청하세요</div>
+            </div>
+            <div class="lastSection-body">
+                <button class="button2" onclick="location.href='hostSurvey.html'">호스트 신청하기</button>
+                <div class="bottom-container">
+                    <table>
+                        <tr>
+                            <td><strong>문의전화</strong></td>
+                            <td>1877-2134</td>
+                        </tr>
+                        <tr>
+                            <td><strong>문의메일</strong></td>
+                            <td>yonghyun@lugstay.com</td>
+                        </tr>
+                        <tr>
+                            <td><strong>카카오톡</strong></td>
+                            <td>강태수123</td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer>
+        <ul id="footer_ul">
+            <li id="footer_li">개인정보 처리방침</li>
+            <li id="footer_li">이용약관</li>
+            <li id="footer_li">서비스 가이드</li>
+            <li id="footer_li">공지사항</li>
+            <li id="footer_li">자주 찾는 질문</li>
+            <li id="footer_li">비즈니스 제휴</li>
+        </ul>
+
+        <ul id="footer_text">
+            <li id="footer_text_li">(주)블루웨일컴퍼니</li>
+            <li id="footer_text_li">사업자 등록번호 : 689-87-01050</li>
+            <li id="footer_text_li">대표 : 오상혁</li>
+        </ul>
+        <ul id="footer_text1">
+            <li id="footer_text_li1">전화번호 : 02-1877-9727</li>
+            <li id="footer_text_li1">이메일 : support@lugstay.com</li>
+            <li id="footer_text_li1">통신판매업 신고번호 : 제 2018-서울서초-2432 호</li>
+        </ul>
+        <p id="footer_text_p">본사 : 서울시 서초구 강남대로369 12층 1356호</p>
+        <p id="footer_text_p">지사 : 경기도 성남시 분당구 판교역로 192번길 16, 8층 806호 A457(삼평동, 판교타워)</p>
+        <p id="footer_text_p">&copy;2018 BLUEWHALE COMPANY INC. all rights reserved.</p>
+    </footer>
+</body>
+
+</html>

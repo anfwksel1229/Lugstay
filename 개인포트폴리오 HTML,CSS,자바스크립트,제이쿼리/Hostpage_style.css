@@ -1,0 +1,866 @@
+html,
+body {
+    height: 100%;
+    margin: 0px;
+    padding: 0px;
+   
+}
+
+body{
+    animation:fadein 1s;
+}
+@keyframes fadein{
+    from{
+        opacity:0;
+    }
+    to{
+        opacity:1;
+    }
+}
+
+#fixed {
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+}
+
+/* 최상단 언어선택 배너 시작 */
+.header {
+    background-color: #4f4f4f;
+    width: 100%;
+    height: 70px;
+
+}
+
+.header .lang-container{
+    position: relative;
+    max-width: 1000px;
+    width:80%;
+    margin:0 auto;
+
+   
+
+}
+
+
+.header .lang-container img {
+    display: inline-block;
+    margin-left: 15rem;
+    /*23rem;  30% */
+    margin-top: 25px;
+    width: 1.1rem;
+    vertical-align: bottom;
+    text-align: center;
+}
+
+.header .lang-container span {
+    color: #fff;
+    font-weight: ligter;
+
+}
+
+.header .lang-container  select{
+    display: block;
+    margin-top: -24px;
+    margin-left: 27rem;
+    /*36rem;*/
+    padding: 6px;
+    width: 150px;
+    height: 33px;
+    border-radius: 3px;
+    border-style: 1px solid grey;
+    background-color: #5A5A5A;
+    color: white;
+
+}
+
+.header .lang-container input[type="button"] {
+    display: block;
+    width: 55px;
+    height: 33px;
+    margin-top: -33px;
+    margin-left: 36.8rem;
+    /*45.7rem; 57.2%;*/
+    border-radius: 3px;
+    border: none;
+}
+
+/* x사인 */
+.header .sign-container{
+    position: relative;
+    float:right;
+}
+.header .sign-container img {
+    display: block;
+    margin-top: -26.5px;
+    margin-left: 20rem;
+    width: 1.2rem;
+    border-radius: 20px;
+}
+
+/* 상단 로고배너 시작 */
+#logoHeader #logo {
+    vertical-align: middle;
+    position: fixed;
+    z-index: 100;
+    width: 100%;
+    height: 90px;
+    background-color: white;
+
+}
+
+#logoHeader #logo .logo1 {
+    width: 2.4rem;
+    margin-left: 2%;
+    margin-top: 1.9%;
+
+}
+
+/* 물품보관하러가기 서비스가이드 자주찾는질문  */
+#logoHeader .menu {
+    float: left;
+    list-style: none;
+    margin-top: -15px;
+    color: #212532;
+    font-size: 0.77rem;
+    font-weight: 700;
+    margin-left: 20px;
+}
+
+/* 물품보관하러가기 서비스가이드 자주찾는질문  */
+#logoHeader .menu .null1 {
+
+    display: inline-block;
+    margin-left: 120px;
+}
+
+/* 물품보관하러가기 서비스가이드 자주찾는질문  */
+#logoHeader .menu .null2 {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+/* 물품보관하러가기 서비스가이드 자주찾는질문  */
+#logoHeader .menu .null3 {
+    display: inline-block;
+    margin-left: 30px;
+}
+
+/* 호스트 신청하기 로그인 바 */
+#logoHeader .host {
+    float: right;
+    list-style: none;
+    margin-top: -19px;
+    color: #212532;
+    font-size: 0.77rem;
+    font-weight: 700;
+}
+
+/* 호스트 신청하기 로그인 바 */
+#logoHeader .host .host1 {
+    display: inline-block;
+    margin-right: 30px;
+}
+
+/* 호스트 신청하기 로그인 바 */
+#logoHeader .host .host2 {
+    display: inline-block;
+    margin-right: 20px;
+}
+
+/* 로그인 옆 메뉴 바 */
+#logoHeader #logo .logo2 {
+    width: 2.7rem;
+    float: right;
+    margin-right: 10px;
+    margin-top: -27px;
+}
+
+/* LugStay 로고문구 */
+#logoHeader #logo .brandFont {
+    display: block;
+    color: #717171;
+    font-size: 1.0em;
+    font-weight: bolder;
+    margin-top: -2.6%;
+    margin-left: 5.3%;
+}
+
+
+/* 호스트 신청하기 화면시작 */
+#first-part {
+    height: 100vh;
+    width: 100%;
+    text-align:center;
+    
+}
+
+#first-part #BackgroundImage  {
+    position: relative;
+    background-color:black;
+    width:100%;
+    height:100%;
+
+    background-image: url(./호스팅페이지Image/배경사진후보4.jpg);
+    background-repeat: no-repeat;
+    background-size:cover;
+    background-position: top;
+    text-align:center
+}
+
+#first-part #BackgroundImage .container {
+    position: relative;
+    
+    width:630px;
+    height:240px;
+    top:45%;
+    margin:0 auto;
+
+}
+
+#first-part #BackgroundImage .container .header-container .text-area .content  {
+    position: relative;
+    font-size:1.9rem;
+    font-weight:800;
+    color:whitesmoke;
+    text-shadow: 1px 1px 1px ;
+}
+
+#first-part #BackgroundImage .container .body .button-area{
+    text-align:center;
+    position: relative;
+    width:100%;
+    height:70px;
+    margin-top:2.3rem;
+}
+
+#first-part #BackgroundImage .container .body .button-area .button{
+    position: relative;
+    text-align: center;
+    background-color:#018af5;
+    font-size:1.1rem;
+    font-weight:700;
+    color:white;
+    border:none;
+    width:180px;
+    height:50px;
+    border-radius: 3px 3px 3px 3px;
+    cursor:pointer;
+}
+#first-part #BackgroundImage .container .body .button-area .button{
+    position: relative;
+    text-align: center;
+    background-color:#018af5;
+    font-size:1.1rem;
+    font-weight:700;
+    color:white;
+    border:none;
+    width:180px;
+    height:50px;
+    border-radius: 3px 3px 3px 3px;
+    cursor:pointer;
+}
+
+#first-part #BackgroundImage .container .body .button-area .button:hover{
+    transform: translateY(-10px);
+    background-color:indianred;
+    transition:0.2s ease;
+   
+}
+
+#BackgroundImage .host-container {
+    position: relative;
+    text-align: center;
+    max-width: 1000px;
+    width:100%;
+    height:100%;
+    background-color:black; 
+}
+#BackgroundImage .HostingMsg {
+    position: relative;
+    color: #fff;
+    font-size: 2.1rem;
+    font-weight: 1000;
+    line-height: 1.5;
+    
+}
+
+/*호스트 베네핏화면 시작*/
+#BackgroundBenefits {
+    position: relative;
+    margin-top: -5px;
+    height: 37rem;
+    background-color: #e8f4fe;
+    padding:8rem 2rem;
+
+}
+
+#BackgroundBenefits .bene-container1 {
+    position: relative;
+    max-width:1000px;
+    height:100%;
+    width:100%;
+    margin:0 auto;
+}
+
+
+#BackgroundBenefits .benefit {
+    position: relative;
+    color: #212429;
+    font-size: 1.4rem;
+    font-weight: 900;
+    line-height: 1.4;
+    margin:0 auto;
+    text-align: center;
+
+}
+
+#BackgroundBenefits .text-body .benefit-title{
+    position:relative;
+    color: #1088e5;
+    font-size: 1.2rem;
+    font-weight: 700;   
+    text-align: center;
+    margin-bottom:1rem;
+}
+
+#BackgroundBenefits .text-body .text1{
+    position: relative;
+    color:#21253a;
+    font-size:1.1rem;
+    font-weight:600;
+    margin-top:2rem;
+    text-align:center;
+
+}
+
+#BackgroundBenefits .text-body {
+    margin-top:3rem;
+  
+    height:81.5%;
+}
+
+#BackgroundBenefits .text-body .text-container{
+    position:relative;
+  
+    width:100%;
+    height:100%;
+}
+#BackgroundBenefits .text-body .text-container .container{
+    max-width:20rem;
+    height:25rem;
+  
+}
+
+#BackgroundBenefits .text-body .text-container ul{
+    position:relative;
+    list-style:none;
+    width:100%;
+    height:100%;
+}
+#BackgroundBenefits .text-body .text-container ul li{
+    position:relative;
+    float:left;
+}
+#BackgroundBenefits .text-body .text-container ul>li:nth-child(2){
+    position:relative;
+    float:left;
+    margin-left:3rem;
+}
+#BackgroundBenefits .text-body .text-container ul>li:nth-child(3){
+    position:relative;
+    float:left;
+    margin-left:3rem;
+}
+
+/* 어떠한 비용도 들지않아요! 섹션 */
+#noMoney {
+    position: relative;
+    height: 37rem;
+    text-align: center;
+}
+
+#noMoney .nocost {
+    width: 12.2rem;
+    margin-top: 7rem;
+}
+
+/* 글자 */
+#noMoney .nocost1 {
+    color: #018af5;
+    font-size: 1.7rem;
+    font-weight: bold;
+}
+
+#noMoney .nocost2 {
+    color: #292c40;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+#noMoney .moo {
+    color: #ff9567;
+}
+
+/* 예시 섹션 */
+#example {
+    padding: 7rem;
+    text-align: center;
+    height: 37rem;
+    background-color: #e8f4fe;
+    margin-bottom:5rem;
+    
+}
+
+#example .example1 {
+    font-size: 1.6rem;
+    text-align: center;
+}
+
+
+#example .example2-container{
+    margin-top: 5rem;
+    position: realtive;
+    width:100%;
+    height:270px;
+    
+
+}
+/* 실제매장사례 텍스트 */
+#example .example2-container .example2 {
+    font-size: 1.3rem;
+    font-weight:500;
+    margin-bottom:1rem;
+}
+
+#example .example2-container .table {
+    position:relative;
+    display:table;
+    border-collapse: collapse;
+    margin:0 auto;
+    width:800px;
+    height:100%;
+
+
+}
+#example .example2-container .table .table-row {
+    display:table-row;
+    
+}
+#example .example2-container .table .table-row .cell-blue{
+    display:table-cell;
+    background-color:#008af4;
+    color:#fff;
+    border:0.5px solid #008af4;
+    font-weight:700;  
+    vertical-align: middle;
+    font-size:1.2rem;
+}
+#example .example2-container .table .table-row .cell-white{
+    display:table-cell;
+    background-color:#fff;
+    border:0.5px solid #c2c2c2;
+    font-weight:700;    
+    vertical-align: middle;
+    font-size:1.2rem;
+}
+
+/* 물품실제예시 이미지사례 */
+#example-image {
+    position: relative;
+    background-color:#fff;
+    width:100%;
+    height:38rem;
+    margin-top:-10rem;
+    text-align: center;
+}
+
+#example-image .image-container{
+    position: relative;
+    max-width:650px;
+    width:100%;
+    padding:3rem;
+    margin:0 auto;
+    height:398px;
+    
+
+}
+
+#example-image .image-container .table{
+    position: relative;
+    width:100%;
+    height:395px;
+    margin-top:3rem;
+    border-spacing:0px -10px;
+    /* border-collapse: collapse; */
+}
+
+#example-image .image-container .table img{
+    width:300px;
+    height:195px;
+    background-size: cover;
+
+}
+
+
+#example-image .image-container .table .table-row1{
+    display:table-row;
+    width:100%;
+    height:195px;
+    margin:0 auto;
+    
+}
+#example-image> .image-container> .table> .table-row1> .table-cell1{
+    float:left;
+    
+   
+}
+
+
+#example-image> .image-container> .table> .table-row1> .table-cell2{
+    float:left;
+   
+}
+
+#example-image .image-container .table .table-row2{
+    position: relative;
+    display:block;
+    width:100%;
+    margin:0 auto;
+    margin-top:-3.84px;
+}
+
+#example-image .image-container .table .table-row2 .table-cell3{
+   float:left;
+}
+
+#example-image .image-container .table .table-row2 .table-cell4{
+    float:left;
+}
+
+#example-image> .image-container> .table> .table-row1> .table-cell1 .caption-left-top{
+    position: absolute;
+    color:#fff;
+    background-color: #008af4;     
+    font-weight:600;
+    top:1rem;
+    padding:5px;
+    width:70px;
+}
+#example-image> .image-container> .table> .table-row1> .table-cell2 .caption-right-top{
+    position: absolute;
+    color:#fff;
+    width:60px;
+    background-color: #008af4;     
+    font-weight:600;
+    top:1rem;
+    right:3.1rem;
+    padding:5px;
+}
+#example-image> .image-container> .table> .table-row2> .table-cell3 .caption-left-bottom{
+    position: absolute;
+    width:60px;
+    color:#fff;
+    background-color: #008af4;     
+    font-weight:600;
+    top:9.5rem;
+    padding:5px;
+}
+#example-image> .image-container> .table> .table-row2> .table-cell4 .caption-right-bottom{
+    position: absolute;
+    color:#fff;
+    background-color: #008af4;     
+    font-weight:600;
+    top:9.5rem;
+    right:3.1rem;
+    padding:5px;
+}
+
+#example-image .image-container .container{
+    position: absolute;
+    top:18.5rem;
+    bottom:52rem;
+    left:22rem;
+    height:120px;
+    background-color:rgba(0, 0,0, 0.5);
+    transform: translate(-50%,-50%);
+    padding:1.2rem;
+    
+}
+
+#example-image .image-container .container .text{
+    position: relative;
+    color:white;
+    font-size:1.2rem;
+    font-weight:600;
+    
+}
+
+#example-image .image-container .container .example{
+    position: relative;
+    color:white;
+    margin-top:1.35rem;
+    font-weight:300;
+    
+}
+#quote-section {
+    position: relative;
+    background-color:#e8f4fe;
+    height:38rem;
+    padding:5rem;
+}
+
+#quote-section .container1{
+    position: relative;
+    width:60%;
+    height:90%;
+    margin:0 auto;
+}
+
+#quote-section .container1 .container2{
+    position: relative;
+    width:100%;
+    height:30%;
+    text-align: center;
+    font-size:1.3rem;
+}
+
+#quote-section .container1 .container2 .date{
+    font-size:1rem;
+    margin-top:1.5rem;
+}
+
+
+#quote-section .container1 .quotes-container{
+    position: relative;
+    width:700px;
+    overflow:hidden;
+    height:inherit;
+    margin:0 auto;
+}
+
+
+#quote-section .container1 .quotes-container .quote1{
+    position: absolute;
+    width:200px;
+    height:110px;
+    background-color:#008af4;
+    border-radius:5px;
+    top:1rem;
+    left:14rem;
+    z-index:4;
+    padding:15px 15px;
+    box-shadow:0px 2px 5px lightgrey;   
+}
+
+#quote-section .container1 .quotes-container .quote1 .text{
+   color:#fff;
+   font-weight:600;
+}
+
+#quote-section .container1 .quotes-container .quote2{
+    position: absolute;
+    width:200px;
+    height:110px;
+    background-color:#008af4;
+    border-radius:5px;
+    top:11rem;
+    left:21rem;
+    z-index:4;
+    padding:15px 15px;
+    box-shadow:0px 2px 5px lightgrey;
+}
+#quote-section .container1 .quotes-container .quote2 .text{
+    color:#fff;
+    font-weight:600;
+ }
+
+ 
+#quote-section .container1 .quotes-container .quote3{
+    position: absolute;
+    width:200px;
+    height:110px;
+    background-color:#fff;
+    border-radius:5px;
+    top:3.5rem;
+    left:28rem;
+    z-index:3;
+    padding:15px 15px;
+    box-shadow:0px 2px 5px lightgrey;
+}
+
+#quote-section .container1 .quotes-container .quote4{
+    position: absolute;
+    width:200px;
+    height:110px;
+    background-color:#fff;
+    border-radius:5px;
+    top:5.2rem;
+    left:1rem;
+    padding:15px 15px;
+    box-shadow:0px 2px 5px lightgrey;
+}
+ 
+#quote-section .container1 .quotes-container .quote3 .text{
+    color:#008af4;
+    font-weight:600;
+    text-shadow:0px 1px 3px lightgrey;
+  
+}
+
+#quote-section .container1 .quotes-container .quote4 .text{
+    color:#008af4;
+    font-weight:600;
+    text-shadow:0px 1px 3px lightgrey;
+}
+
+#co-work{
+    position: relative;
+    background-color:#fff;
+    height:38rem;
+    padding:5rem;
+
+}
+
+#co-work .container{
+    position: relative;
+    width:7 00px;
+    height:100%;
+    margin:0 auto;
+    text-align: center;
+}
+
+#co-work .container table{
+    display:block;
+    position: relative;
+    width:700px;
+    height:inherit;
+    border-spacing:100px;
+    margin:0 auto;
+    margin-top: -5rem;
+}
+
+#co-work .container table tr td img{
+    width:185px;
+    height:65px;
+}
+
+#co-work .container .text{
+    position: relative;
+    font-size:1.2rem;
+    padding:10px;
+    font-weight: 400;
+    letter-spacing: normal;
+    word-break:keep-all;
+    line-height: 1.5em;
+    margin-bottom: 10rem;
+    display:block;
+}
+
+#co-work .container .text strong{
+    color: #008af4;
+}
+
+#last-section{
+    position: relative;
+    height:38rem;
+    background-color:#e8f4fe;
+}
+
+#last-section .container{
+    position: relative;
+    width:400px;
+    height:100%;
+    margin:0 auto;
+    text-align: center;
+    margin-top:10rem;
+    margin-bottom: 5rem;
+    overflow:hidden;
+}
+
+#last-section .container .lastheader{
+    position: relative;
+    margin-top:10rem;
+}
+#last-section .container .lastheader .text{
+    position: relative;
+    font-size:1.8rem;
+    font-weight:900;
+    line-height: 1.5;
+    word-break:keep all;
+    margin-top:-3rem;
+}
+
+#last-section .container .button2{
+    position: relative;
+    text-align: center;
+    background-color:#018af5;
+    font-size:1.5rem;
+    font-weight:800;
+    color:white;
+    border:none;
+    width:240px;
+    height:70px;
+    border-radius: 3px;
+    cursor:pointer;
+    margin-top:4rem;
+}
+
+#last-section .container .button2:hover{
+transform: translateY(-10px);
+background-color:indianred;
+transition:0.2s ease;
+}
+
+#last-section .container .bottom-container{
+    position: relative;
+    width:500px;
+    height:100%;
+    margin:0 auto;
+}
+
+#last-section .container .bottom-container table{
+    position: relative;
+    font-size:1.1rem;
+    width:500px;
+    height:100%;
+    margin-top:4rem;
+}
+
+#last-section .container .bottom-container table tr td:nth-child(2){
+    float:left;
+    margin-left:4rem;
+}
+
+
+#footer_li{
+    cursor: pointer;
+      display: inline-block;
+      border-left: 0.2rem solid #dee2e6;
+      color: #adb5bd;
+      font-weight: 900;
+      padding-left: 0.3rem;
+      font-size: 0.8rem;
+  }
+
+  #footer_text_li{
+    display: inline-block;
+    border-left: 0.2rem solid #dee2e6;
+    color: #adb5bd;
+    padding-left: 0.3rem;
+    font-size: 0.8rem;
+  }
+  #footer_text_li1{
+      display: inline-block;
+      border-left: 0.2rem solid #dee2e6;
+      color: #adb5bd;
+      padding-left: 0.3rem;
+    font-size: 0.8rem;
+  }
+  #footer_text_p{
+    margin-top: -0.2rem;
+    color: #adb5bd;
+    padding-left: 0.3rem;
+    margin-left: 43px;
+    font-size: 0.8rem;
+  }

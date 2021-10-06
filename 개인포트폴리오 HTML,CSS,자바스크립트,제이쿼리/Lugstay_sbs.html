@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<script>
+  
+
+</script>
+<style>
+    ul{
+        list-style: none;
+    }
+    header{
+            position: fixed;
+            z-index: 100;
+            background-color: white;
+            width: 100%;
+            height: 6rem;
+            margin-top: -10px;
+
+    animation-name: myanim;
+    animation-duration: 1s;
+}
+@keyframes myanim {
+    0%{
+        right: -500px; 
+    }
+    100%{
+        right: 0px;
+    }
+    
+}
+#imoji{
+            color: #228be6;
+            font-size: 50px;
+            margin-top: -25px;
+        }
+.left{
+            float: left;
+            margin : 6.4px 0px 0px 32px;
+            padding: 24px 0px;
+        }
+
+        .right{
+            float: right;
+            margin : 0px 32px 0px 32px;
+            padding: 24px 0px;
+        }
+        #mt{
+            margin-top: -20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+        #mt:hover{
+            cursor: pointer;
+        }
+        #mt2{
+            margin-top: -35px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+        #mt2:hover{
+            cursor: pointer;
+        }
+
+
+   
+    
+     body{
+        text-align: center;
+         animation: fadein 1s;
+    }
+    @keyframes fadein{
+    from{
+        opacity: 0;
+    }
+    to{
+        opacity: 1;
+    }
+    
+    } 
+  
+    #첫번째문단{
+            background-color: white;
+            padding-bottom: 100px;
+            padding-bottom: 120px;
+    }
+   
+    
+    h4{
+        color: #2294ec;
+    }
+    #STEP01{
+        padding-top: 200px;
+    }
+    #정보입력,#상점선택,#예약완료{
+        display: inline-block;
+        margin-left: 38px;
+        margin-right: 80px;
+    }
+    #두번째문단{
+        background-color: #e7f5ff;
+        padding-top: 100px;
+        padding-bottom: 120px;
+
+    }
+    #두번째{
+        display: inline-block;
+        margin-left: 240px;
+        margin-right: 235px; 
+    }
+    #두번째문장{
+        text-align: center;
+        display: inline-block;
+        margin-left: 110px;
+        margin-right: 80px ;
+    }
+    #세번째문단{
+        padding-top: 100px;
+        padding-bottom: 120px;
+    }
+    #세번째{
+        display: inline-block;
+        margin-left: 150px;
+        margin-right: 135px;
+    }
+    #세번째문장{
+        text-align: center;
+        display: inline-block;
+        margin-left: 20px;
+        margin-right: 30px;
+      
+    }
+    footer{
+          text-align: left;
+          background-color: #ffffff;
+          color: #adb5bd;
+          margin-left: 50px;
+          padding-top: 50px;
+      }
+      #맨아래{
+          cursor: pointer;
+          font-weight: bold;
+          font-size: 16px;
+      }
+      button{
+          background-color: #228be6;
+          color: white;
+          height: 100px;
+          width:  400px;
+          border: none;
+          font-size: 15px;
+         
+         
+
+      }
+      button:hover{
+        transform: translateY(-30px);
+        transition: 0.3s ease;
+        background-color: indianred;
+      }
+     
+     
+      
+      a{
+          text-decoration: none;
+          color:white;
+          height: -80px;
+          transition: 0.3s;
+      }
+     
+      html {
+    scroll-behavior: smooth;
+    
+}
+
+
+
+
+
+
+
+
+    
+</style>
+
+
+<header>
+    <div class="left">
+    <a href="./Lugstay_main.html"><img src="https://www.lugstay.com/img/logotype.svg"></a>
+    </div>
+    <ul class="left" id="mt">
+        <li class="left"><a href="./물품보관하러가기.html" style="color: black;"> 물품 보관하러 가기</a></li>
+        <li class="left"><a href="./Lugstay_sbs.html " style="color: black;">서비스 가이드</a> </li>
+        <li class="left"><a href="./자주찾는질문.html" style="color: black;"> 자주 찾는 질문</a></li>
+    </ul>
+    
+    <span class="clear"></span>
+    
+    <div class="right">
+    <ul class="right" id="mt2">
+        <li class="right" id="imoji">≡</li>
+        <li class="right">로그인</li>
+        <li class="right"><a href="./Lugstay_host.html " style="color: black;">호스트 신청하기</a> </li>
+    </ul>
+</div>
+<span class="clear"></span>
+</header>
+
+<body >
+   
+  
+    
+    <div id="첫번째문단">
+    <div id="STEP01">
+    <h4>STEP 01</h4>
+    <h1>예약하고</h1>
+    <img src="./럭스테이 이미지.jpg">
+    </div><br>
+
+    
+    <div id="정보입력">
+        <h3>정보 입력</h3>
+        예약 날짜와 시간,보관하고자 하는 물품의<br>
+         크기와 수량을 입력합니다.
+    </div>
+    <div id="상점선택">
+        <h3>상점 선택</h3>
+        보관하고자 하는 상점을 지도에서<br>
+            선택합니다.
+    </div>
+        <div id="예약완료">
+            <h3>예약 완료</h3>
+            예약이 완료되면 물품을 맡길 수<br>
+            있는 QR티켓이 발급됩니다.
+        </div>
+    </div>
+    
+
+    <div id="두번째문단">
+    <h4>STEP 02</h4>
+    <h1>맡기고</h1>
+    <img src="./럭스테이 이미지2.jpg">
+    <br>
+
+    <div id="티켓제시">
+        <div id="두번째"><h3>티켓 제시</h3></div>
+        <div id="두번째"><h3>보관 완료</h3></div><br>
+
+        <div id="두번째문장">  상점을 방문하여 발급받은 QR티켓을 보여주고<br>
+            체크인 합니다.</div>
+        
+           <div id="두번째문장"> 예약 내역 확인 후 호스트가 물품을 안전하게<br>
+            보관해드립니다.<br>
+            만일,분실/파손이 발생하는 경우,보상프로그램 정책에<br>
+            따라 최대 30만원의 보상을 해드립니다.</div>
+    </div>
+</div>
+
+    <div id="세번째문단">
+        <h4>STEP 03</h4>
+        <h1>찾아가고</h1>
+        <img src="./럭스테이 이미지3.jpg"><br>
+        <div id="세번째"><h3>상점 방문</h3></div>
+        <div id="세번째"><h3>물품 확인</h3></div>
+        <div id="세번째"><h3>후기 작성</h3></div><br>
+
+        <div id="세번째문장">
+            상점을 방문하여 티켓의 물품 사진을 호스트에게<br>
+            보여주세요</div>
+        <div id="세번째문장">
+            물품을 전달 받고 나의 물품이 맞는지 확인 후,<br>
+            체크아웃을 해주세요.</div>
+        <div id="세번째문장">
+            다른 사람들을 위해 후기를 남겨주세요.</div> 
+    </div><br>
+
+    <button><h2><a href="./물품보관하러가기.html"> 물품 보관하러 가기</a></h2></button>
+    
+</body>
+<footer>    
+            
+    <div id="맨아래">개인정보 처리방침 | 이용약관 | 서비스 가이드 | 공지사항 | 자주 찾는 질문 | 비즈니스 제휴</div>
+   <span style="float: right;"> <a href="https://www.facebook.com/LugStay.official/"> <img src="./페이스북.jpg"></a>
+   <a href="https://www.instagram.com/lugstay.official/"> <img src="./인스타그램.jpg"></a>
+   <a href="https://blog.naver.com/lugstay"> <img src="./네이버 블로그.jpg"></a></span>
+    <br>
+    (주)블루웨일컴퍼니 | 사업자 등록번호 : 689-87-01050 | 대표 : 오상혁 <br>
+    전화번호 : 02-1877-9727 | 이메일 : support@lugstay | 통신판매업 신고번호 : 제 2018-서울서초-2432 호<br>
+    본사 : 서울시 서초구 강남대로369 12층 1356호<br>
+    지사 : 경기도 성남시 분당구 판교역로 192번길 16,8층 806호 A457(삼평동,판교타워)<br>
+    &copy; 2018 BLUEWHALE COMPANY INC. all rights reserved.
+    </footer>
+</html>

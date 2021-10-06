@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Layout</title>
+    <script src="http://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('ul.tabs li').click(function () {
+
+                var tab_id = $(this).attr('data-tab');
+
+                $('ul.tabs li').removeClass('current');
+                $('.tab-content').removeClass('current');
+
+                $(this).addClass('current');
+                $("#" + tab_id).addClass('current');
+            })
+        })
+
+        $(document).ready(function () {
+            $(".menu>span").click(function () {
+                $(this).next("ul").toggleClass("hide");
+            });
+        });
+    </script>
+
+    <style>
+
+        .nav {
+            height: 100px;
+            display: flex;
+            background-color: white;
+            align-items: center;
+        }
+        .nav-right-items {
+            display: flex;
+            margin-left: auto;
+            font-size: 1.1em;
+            padding-right: 80px;
+            align-items: center;
+        }
+
+        img { width: 130px; padding-left: 40px;}
+
+        #menuBar {font-size: 2em;}
+
+        a {
+            padding-left: 30px;
+            text-decoration: none;
+            color: black;
+            font-weight: bold;
+            }
+
+        #container {
+            width: 50%;
+            height: 100%;
+            margin: 0 auto;
+            background-color: white;
+            margin-top: 50px;
+            margin-bottom: 50px;
+        }
+
+        #footer {
+            color: #adb5bd;
+            background-color: white;
+            font-size: smaller;
+            padding-left: 30px;
+            line-height: 25px;
+        }
+
+        body {
+            background-color: lightgray;
+            height: 100%;
+            margin: 0%;
+            font-weight: bold;
+            }
+
+        h2 {text-align: center; padding-top: 40px;}
+
+        .footInfo{font-weight: bold;}
+
+        ul.tabs {
+            list-style: none;
+            border-bottom: 1px solid skyblue;
+            text-align: center;
+            margin-top: 40px;
+            height: 46px;
+            line-height: 46px;
+        }
+        ul.tabs li.current {
+            background: #008af4;
+            color: white;
+            font-weight: bold;
+        }
+        ul.tabs li {
+            background: none;
+            color: #222;
+            display: inline-block;
+            width: 49%;
+        }
+        .tab-content {
+            display: none;
+            cursor: pointer;
+            border-bottom: 1px solid lightgrey;
+            margin: 20px;
+        }
+        .tab-content.current {display: inherit;}
+
+        .hide {display: none;}
+
+        li {list-style: none;}
+
+        ul {padding-left: 0%; cursor: pointer;}
+
+        .menu{
+            font-size: 14px;
+            padding: 15px;
+            line-height: 15px;
+            border-bottom: 1px solid lightgray;
+            }
+
+        p {line-height: 2;}
+
+        .footInfo ul li {display: inline-block;}
+
+    </style>
+</head>
+
+<body>
+    <div class="nav">
+        <a href="Lugstay_main.html"><img src="https://www.lugstay.com/img/logotype.svg"></a>
+        <div class="nav-item"><a href="./물품보관하러가기.html">물품 보관하러 가기</a></div>
+        <div class="nav-item"><a href="./Lugstay_sbs.html ">서비스 가이드</a></div>
+        <div class="nav-item"><a href="./자주찾는질문.html">자주 찾는 질문</a></div>
+
+        <div class="nav-right-items">
+            <div class="nav-item"><a href="./Lugstay_host.html ">호스트 신청하기</a></div>
+            <div class="nav-item"><a href="">로그인</a></div>
+            <div class="nav-item" id="menuBar"><a href="">≡</a></div>
+        </div>
+    </div>
+
+    <div id="container">
+
+        <h2>자주 찾는 질문</h1>
+        <ul class="tabs">
+            <li class="tab-link current" data-tab="tab-1">고객</li>
+            <li class="tab-link" data-tab="tab-2">호스트</li>
+        </ul>
+
+        <!-- 고객 시작 -->
+
+        <div id="tab-1" class="tab-content current">
+            <li class="menu">
+                <span>럭스테이는 어떤 서비스인가요?</span>
+                <ul class="hide">
+                    <li><p>주변에 있는 상점의 빈 공간을 통해 손쉽게 물품을 보관할 수 있는 서비스입니다.</p></li>
+                </ul>
+            </li>
+
+            <li class="menu">
+                <span>어떻게 사용하나요?</span>
+                <ul class="hide">
+                    <li><p>
+                        <b>[보관하기]</b>
+                        <ul>
+                            <li>1. 예약 날짜와 시간, 물품 개수를 입력합니다.</li>
+                            <li>2. Pick one of our partners on Lugstay website.</li>
+                            <li>3. 안내에 따라 예약을 완료합니다. 예약이 완료되면 티켓이 발급되고,<br>
+                                이메일 또는 나의 예약 목록에서 확인하실 수 있습니다.</li>
+                            <li>4. 상점을 방문하여 발급받은 QR티켓을 보여주고 체크인합니다.</li>
+                        </ul>
+                        <br>
+                        <p><b>[찾아가기]</b></p>
+                        <ul>
+                            <li>1. 상점을 방문하여 발급받은 티켓에 있는 물품 사진을 보여줍니다.</li>
+                            <li>2. 나의 물품을 전달 받으세요.</li>
+                            <li>3. 티켓의 멈춤을 눌러 체크아웃을 실행하세요.</li><br>
+
+                            럭스테이는 실시간으로 요금이 부과되는 서비스입니다.<br>
+                            멈춤버튼을 눌러 체크아웃을 실행하지 않은 경우 추가이용요금이 발생할 수 있습니다.
+                            현장에서 결제하는 것은 불가합니다.(카드 직접결제, 현금 결제 등)<br>
+                            럭스테이 홈페이지 또는 앱에서 사전 결제를 하신 후 이용하셔야 합니다.<br>
+                        </ul></p></li>
+                </ul>
+            </li>
+
+            <li class="menu">
+                <span>이용금액은 얼마인가요?</span>
+                <ul class="hide">
+                    <li><p>
+                        <ul>
+                            <li>기본요금(최초1시간)은 물품 크기에 따라 Small 2,000원/ Large 3,000원이며,<br>
+                                이후 추가 사용 시간에 따라 각각 100원/10분, 150원/10분의 이용요금이 책정됩니다.</li>
+                            <li>예약 시에 기본료가 선불결제되고, 서비스 사용 시간에 따라 발생하는 추가 요금은 후불결제됩니다.</li>
+                            <li>기본요금(최초 1시간) : 시간당 가격+서비스 이용료+보험료 포함</li>
+                            <li>8시간 이전까지는 10분당 과금, 8시간 이후엔 고정 과금</li>
+                            <li>24시간 이후에는 1일치 고정 과금<br></li>
+
+                            예시) Small 1개, Large 2개를 3시간 예약 후 2시간 30분만 이용한 경우<br>
+                            기본요금(선결제/최초 1시간) (Small X 1개 = 2,000원)+(Large X 2개 = 6,000원) = 8,000원<br>
+                            +<br>
+                            [(Small X 1개) + (100원/10분당 X 90분] = 1,200원<br>
+                            +<br>
+                            [(Large X 2개) + (150원/10분당 X 90분)] = 1,350원<br>
+                            총 이용요금 : = 10,550원 (선결제 8,000원 + 후불결제 2,550원)<br><br>
+                            <li><a href="상세이용요금.html">서비스 이용료 자세히 보기</a></li>
+                        </ul>
+                    </p></li>
+                </ul>
+            </li>
+
+            <li class="menu">
+                <span>안전하게 보관되나요?</span>
+                <ul class="hide">
+                    <li><p>
+                        럭스테이는 CCTV와 별도의 보관 공간이 있는 안전한 상점만 호스트로 등록합니다.<br>
+                        분실/파손이 발생하는 경우, 보상프로그램 정책에 따라 최대 30만원의 보상을 해드립니다.<br>
+                    </p></li>
+                </ul>
+            </li>
+
+            <li class="menu">
+                <span>결제는 어떻게 하나요?</span>
+                <ul class="hide">
+                    <li><p>
+                        예약 시 선택한 물품의 크기와 수량에 따라 기본요금이 결제되고, 체크아웃 시 등록된 카드로 추가요금만 결제됩니다.<br>
+                        예약 시 결제 정보를 입력하실 수 있으며, 결제 카드를 등록하시면 등록 이후 손 쉽게 결제하실 수 있습니다.<br>
+                    </p></li>
+                </ul>
+            </li>
+
+            <li class="menu">
+                <span>무엇을 맡길 수 있나요?</span>
+                <ul class="hide">
+                    <li><p>
+                        물품의 크기나 무게 제한은 없습니다. (예. 백팩, 숄더백, 캐리어, 킥보드, 유모차 등)<br>
+                        다만 가방이나 박스 형태가 아닌 경우 보관에 제한이 있을 수 있으며,<br>
+                        아래 조건에 해당하는 물품은 보관할 수 없습니다.<br>
+                        1) 음식물<br>
+                        냉장보관 해야되는 음식물, 또는 냄새가나는 음식물<br>
+                        2) 귀중품<br>
+                        신분증, 여권, 화폐 등 고가품의 경우<br><br>
+
+                        • <a href="물품종류.html">물품 종류 자세히 보기</a>
+                    </p></li>
+                </ul>
+            </li>
+
+            <li class="menu">
+                <span>상점 영업시간이 지나서 물품을 찾지 못했습니다. 어떻게 해야 되나요?</span>
+                <ul class="hide">
+                    <li><p>
+                        상점 영업시간이 지난경우, 당일에는 물품을 찾으실 수 없습니다.<br>
+                        다음 영업시간에 다시 물품을 찾으실 수 있습니다. 예약 전 반드시 매장의 영업시간을 미리 확인하세요.
+                    </p></li>
+                </ul>
+            </li>
+
+            <li class="menu">
+                <span>물품을 안 찾아가면 어떻게 되나요?</span>
+                <ul class="hide">
+                    <li><p>
+                        별도의 문의 없이 예약한 날짜에서 7일 이후까지 찾아가지 않은 경우<br>
+                        럭스테이에서 물품을 보관하며, 배송 및 보관에 따른 추가 비용이 발생합니다.
+                    </p></li>
+                </ul>
+            </li>
+
+            <li class="menu">
+                <span>물품을 찾기로 한 시간 보다 늦었습니다. 추가 요금을 내야 하는지요?</span>
+                <ul class="hide">
+                    <li><p>
+                        <ul>
+                            <li>예약 시에 기본료가 선불결제되고,<br>
+                                서비스 사용 시간에 따라 발생하는 추가 요금은 후불결제됩니다.</li>
+                            <li>기본요금(최초 1시간) : 시간당 가격+서비스 이용료+보험료 포함</li>
+                            <li>8시간 이전까지는 10분당 과금, 8시간 이후엔 고정 과금</li>
+                            <li>24시간 이후에는 1일치 고정 과금</li><br>
+                            예시) Small 1개, Large 2개를 3시간 예약 후 2시간 30분만 이용한 경우<br>
+                            기본요금(선결제/최초 1시간) (Small X 1개 = 2,000원)+(Large X 2개 = 6,000원) = 8,000원<br>
+                            +<br>
+                            [(Small X 1개) + (100원/10분당 X 90분] = 1,200원<br>
+                            +<br>
+                            [(Large X 2개) + (150원/10분당 X 90분)] = 1,350원<br>
+                            총 이용요금 : = 10,550원 (선결제 8,000원 + 후불결제 2,550원)<br><br>
+
+                            <li><a href="상세이용요금.html">서비스 이용료 자세히 보기</a></li>
+                        </ul>
+                    </p></li>
+                </ul>
+            </li>
+
+            <li class="menu">
+                <span>다른 사람이 찾을 수 있나요?</span>
+                <ul class="hide">
+                    <li><p>
+                        <ul>
+                            <li> 네. 가능합니다. 물품을 보관 후, 예약티켓을 다른사람에게 전달할 수 있는 '티켓 전달하기'기능이 있습니다.</li>
+                            <li> 상점 예약, 체크인 이후 티켓의 우측 하단에 전달하기 버튼을 누르고<br>
+                                전달하는 사람의 정보를 입력 후 전달하시면 전달 받은 사람이 티켓으로 물품을 받을 수 있습니다.</li>
+                        </ul>
+                    </p></li>
+                </ul>
+            </li>
+
+            <li class="menu">
+                <span>대량 보관이나 장기 보관이 가능한가요?</span>
+                <ul class="hide">
+                    <li><p>
+                        네. 가능합니다. 대량 보관이나 7일 이상의 장기 보관 시 고객센터 1877-9727, support@lugstay.com, 우측 하단의 메신저를 통해 별도로 문의주시기
+                        바랍니다.
+                    </p></li>
+                </ul>
+            </li>
+
+            <li class="menu">
+                <span>취소 규정</span>
+                <ul class="hide">
+                    <li><p>
+                        예약한 시간 이전까지는 언제든 취소가 가능합니다.
+                        단, 예약한 시간으로부터 1시간 이내 상점을 방문하여 체크인하지 않으면,
+                        티켓은 만료처리되며 예약 시 선결제된 기본요금은 반환되지 않습니다.
+                        취소하실 경우 반드시 예약시간을 확인하세요.
+                        예약 취소시 환불에 걸리는 시간은 아래와 같습니다.
+                        예약한 당일 취소시 : 즉시 환급
+                        예약한 당일 이후 취소시 : 3~5영업일 후 환급
+                    </p></li>
+                </ul>
+            </li>
+
+            <li class="menu">
+                <span>환불 규정</span>
+                <ul class="hide">
+                    <li><p>
+                        예약 취소시 환불에 걸리는 시간은 아래와 같습니다.<br>
+                        예약한 당일 취소시 : 즉시 환급<br>
+                        예약한 당일 이후 취소시 : 3~5영업일 후 환급<br>
+                    </p></li>
+                </ul>
+            </li>
+        </div> <!-- 고객 close -->
+
+        <!-- 호스트 시작 -->
+
+        <div id="tab-2" class="tab-content">
+            <li class="menu">
+                <span>럭스테이 호스트로 가입하고 싶습니다. 어떻게 해야 하는지요?</span>
+                <ul class="hide">
+                    <li><p>
+                        상점 내 CCTV와 별도의 보관 공간이 있으면 가능합니다.
+                        메뉴의 "호스트 신청하기"를 통해 신청서를 작성해주세요.
+                        (등록 절차는 약 2~3일의 기간이 소요됩니다.)
+                    </p></li>
+                </ul>
+            </li>
+
+            <li class="menu">
+                <span>럭스테이 호스트가 되면 무엇이 좋나요?</span>
+                <ul class="hide">
+                    <li><p>
+                        상점의 빈 공간을 이용하여 부가적인 수익을 얻을 수 있습니다.
+                        별도로 고객이 유입됩니다.
+                        상점을 찾아오는 고객들을 대상으로 판매 상품의 추가 구매로 이어질 수 있습니다.
+                    </p></li>
+                </ul>
+            </li>
+
+            <li class="menu">
+                <span>럭스테이 호스트가 해야 할 일은 무엇인가요?</span>
+                <ul class="hide">
+                    <li><p>
+                        예약한 고객이 방문하면 QR스캐너를 통해 체크인 후
+                        물품 사진을 찍고 보관해주시면 됩니다.
+                        자세한 사용방법은 호스트 가입시 별도로 송부드립니다.
+                    </p></li>
+                </ul>
+            </li>
+
+            <li class="menu">
+                <span>추가 문의는 어떻게 하나요?</span>
+                <ul class="hide">
+                    <li><p>
+                        그 외 문의사항은 고객센터 1877-9727,
+                        support@lugstay.com,
+                        우측 하단의 메신저를 통 문의주시기 바랍니다.
+                    </p></li>
+                </ul>
+            </li>
+
+        </div> <!-- 호스트 close -->
+
+    </div>
+
+        <div id="footer">
+            <div class="footInfo">
+                <ul>
+                    <li>개인정보 처리방침</li>
+                    <li>이용약관서비스</li>
+                    <li>가이드공지사항</li>
+                    <li>자주 찾는 질문</li>
+                    <li>비즈니스 제휴</li>
+                </ul>
+            </div>
+            <div class="comInfo">
+                (주)블루웨일컴퍼니 | 사업자 등록번호 : 689-87-01050 | 대표 : 오상혁<br>
+                전화번호 : 02-1877-9727 | 이메일 : support@lugstay.com | 통신판매업 신고번호 : 제 2018-서울서초-2432 호<br>
+                본사 : 서울시 서초구 강남대로369 12층 1356호<br>
+                지사 : 경기도 성남시 분당구 판교역로 192번길 16, 8층 806호 A457(삼평동, 판교타워)<br>
+                ©2018 BLUEWHALE COMPANY INC. all rights reserved.
+            </div>
+        </div>
+</body>
+
+</html>

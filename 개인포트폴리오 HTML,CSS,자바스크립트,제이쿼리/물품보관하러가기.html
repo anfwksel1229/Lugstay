@@ -1,0 +1,1420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=3240bed46936e737eca85ecdde16c045"></script>
+    <title>Logstay</title>
+
+    <style>
+        /* 헤더 */
+        header {
+            position: fixed;
+            z-index: 100;
+            background-color: white;
+            width: 100%;
+            height: 6rem;
+        }
+
+        .left {
+            float: left;
+            margin: 6.4px 0px 0px 32px;
+            padding: 24px 0px;
+        }
+
+        .right {
+            float: right;
+            margin: 0px 32px 0px 32px;
+            padding: 24px 0px;
+        }
+
+
+        /* lugstay 로고 */
+        #Logo {
+            cursor: pointer;
+            float: left;
+            margin: 25px;
+        }
+
+        #imoji {
+            color: #228be6;
+            font-size: 50px;
+            margin-top: -25px;
+        }
+
+        .clear {
+            clear: both;
+        }
+
+        #mt {
+            margin-top: -20px;
+            font-weight: bold;
+            font-size: 0.9em;
+        }
+
+        #mt:hover {
+            cursor: pointer;
+        }
+
+        #mt2 {
+            margin-top: -35px;
+            font-weight: bold;
+            font-size: 1.1em;
+        }
+
+        #mt2:hover {
+            cursor: pointer;
+        }
+
+        /* 상단 베뉴 리스트 */
+        header ul li {
+            cursor: pointer;
+            display: inline-block;
+            margin-right: 20px;
+            font-size: 0.9em;
+            letter-spacing: -1px;
+            font-weight: 550;
+        }
+
+
+        /* 검색 틀 */
+        .search {
+            z-index: 100;
+            position: fixed;
+            top: 15%;
+            left: 0px;
+            right: 0px;
+            height: 10%;
+            background-color: white;
+            box-shadow: 0px 3px 7px gray;
+        }
+
+        .searchframe {
+            position: relative;
+            width: 100%;
+            height: 100%;
+            margin-left: 1.5em;
+            margin-top: .5em;
+        }
+
+        .searcharea {
+            position: relative;
+            display: inline-block;
+            border: 1px solid lightgray;
+            vertical-align: middle;
+            border-radius: 3em;
+            height: 70%;
+        }
+
+        .searcharea img {
+            display: inline-block;
+            vertical-align: middle;
+            padding-left: 1em;
+        }
+
+        .searcharea input {
+            display: inline-block;
+            border: 0px;
+            outline: none;
+            font-size: 1em;
+            width: 70%;
+            height: 96%;
+            letter-spacing: -1px;
+        }
+
+        .searcharea div {
+            display: inline-block;
+            border: 0px;
+            outline: none;
+            width: 34%;
+            height: 96%;
+        }
+
+        /* 검색필드들 글씨 설정 */
+        .searcharea span {
+            letter-spacing: -1px;
+            font-size: 0.9em;
+        }
+
+        /* 초기화 버튼 */
+        #resetbutton {
+            background-color: rgb(19, 150, 255);
+            color: white;
+            font-size: 1em;
+            font-weight: bold;
+            text-align: center;
+            cursor: pointer;
+            margin-left: 1em;
+        }
+
+        /* 매장 큰 틀 */
+        .storeframe {
+            position: fixed;
+            z-index: 50;
+            top: 25%;
+            bottom: 0;
+            left: 0px;
+            width: 30em;
+            overflow: auto;
+        }
+
+        /* 매장 정보 정렬 */
+        .sort {
+            padding: 1em;
+            border-bottom: 1px solid lavender;
+        }
+
+        .colorlist {
+            display: inline-block;
+            list-style: none;
+            margin-left: 8em;
+        }
+
+        .colorlist li {
+            display: inline-block;
+            padding-left: 1em;
+        }
+
+        .colorlist li .colorex {
+            width: 20px;
+            height: 20px;
+            border-radius: 1em;
+        }
+
+        /* 매장 정보 틀 */
+        .storeframe .storelist {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+        }
+
+        /* 매장 ul */
+        .storeframe .storelist ul {
+            padding: 0px;
+            margin: 0px;
+        }
+
+        /* 매장 li */
+        .storeframe .storelist ul li {
+            list-style-type: none;
+            cursor: pointer;
+        }
+
+        .storeframe .storelist ul li:hover {
+            background-color: whitesmoke;
+        }
+
+        /* li 틀 */
+        .storeframe .storelist .box {
+            position: relative;
+            border-bottom: 1px solid lavender;
+            overflow: visible;
+            height: 7.5em;
+        }
+
+        /* 정보 틀 */
+        .storeframe .storelist .box .box2 {
+            position: relative;
+            padding: 10px;
+            height: 100%;
+        }
+
+        /* 매장 사진 */
+        .storeframe .storelist .box .box2>img {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+
+        /* 매장 정보 틀 위치 */
+        .storeframe .storelist .box .storeinfo {
+            margin-left: 7.5em;
+        }
+
+        /* 매장별 보관 갯수 현황 */
+        .storeframe .storelist .box .counting {
+            position: absolute;
+            right: 20px;
+            top: 35%;
+            width: 20px;
+            height: 20px;
+            border-radius: 1em;
+        }
+
+        .storeframe .storelist .box .storeinfo div {
+            padding: 4px;
+        }
+
+        .storeframe .storelist .box .storeinfo .timediv img {
+            vertical-align: middle;
+            width: 20px;
+            height: 20px;
+        }
+
+        /* 매장 정보 글씨 설정 */
+        .category {
+            font-size: 14px;
+            color: tan;
+        }
+
+        .name {
+            font-weight: bold;
+        }
+
+        .time {
+            font-size: 14px;
+            color: seagreen;
+        }
+
+        /* 맵 큰 틀 */
+        .map_all {
+            position: fixed;
+            top: 15%;
+            bottom: 0px;
+            left: 30em;
+            right: 0px;
+        }
+
+        /* 맵 */
+        .map_all #map {
+            width: 100%;
+            height: 100%;
+            top: 0px;
+            bottom: 0px;
+            left: 0px;
+        }
+
+        /* content 스타일 */
+        .frame {
+            position: absolute;
+            border-radius: 1em;
+            left: -100px;
+            bottom: 40px;
+            width: 200px;
+            height: 100px;
+            background-color: white;
+            border-bottom: 1px solid gray;
+            cursor: default;
+        }
+
+        /* content head */
+        .frame .head {
+            position: relative;
+            width: 100%;
+            height: 35%;
+            color: white;
+            font-size: 1.2em;
+            text-align: center;
+        }
+
+        .frame .headname {
+            color: white;
+        }
+
+        /* content 버튼 */
+        .frame .body {
+            position: relative;
+            width: 100%;
+            height: 80%;
+        }
+
+        .frame .body .info {
+            position: absolute;
+            font-size: 14px;
+            width: 85%;
+            height: 100%;
+            text-align: center;
+            border-right: 1px solid tan;
+        }
+
+        .frame .body .info div {
+            padding-top: 8%;
+        }
+
+        .frame .body .button {
+            position: absolute;
+            right: 0px;
+            right: 0px;
+            width: 15%;
+            height: 100%;
+        }
+
+        .frame .body .button:hover {
+            cursor: pointer;
+            background-color: turquoise;
+        }
+
+        .frame .body .button .font {
+            margin-top: 80%;
+            text-align: center;
+            font-weight: 900;
+            color: red;
+        }
+
+        /* 물품 갯수 설정 창 */
+        #countframe {
+            position: absolute;
+            z-index: 1000;
+            top: 12em;
+            right: 20em;
+            width: 20em;
+            height: 10em;
+            background-color: white;
+            cursor: default;
+            border-radius: 1em;
+            box-shadow: 1px 2px 3px gray;
+            visibility: hidden;
+        }
+
+        #countframe button {
+            margin-top: 2em;
+            margin-left: 9em;
+            background-color: rgb(19, 150, 255);
+            color: white;
+            border-radius: 1em;
+            width: 7em;
+            height: 2.5em;
+        }
+
+        #countframe #countframe2 {
+            padding-left: 10%;
+            padding-top: 8%;
+        }
+    </style>
+    <script>
+        var text;
+        $(function () {
+            var name = document.getElementsByClassName("name");
+
+            // 검색 창에 입력 시 실시간 이벤트 처리
+            $("#searchname").on("propertychange change keyup paste input", function () {
+                text = $(this).val();
+                for (var i = 0; i < name.length; i++) {
+                    names = name[i].innerHTML;
+                    if (names.includes(text) && text.length > 1) {
+                        var a = $(name[i]).closest("li");
+                        cl(a[0]);
+                    }
+                }
+            })
+
+            // 물품 갯수 설정창에서 마우스가 떠나면 창 초기화
+            $("#countframe").mouseleave(function () {
+                $("#countframe").css("visibility", "hidden");
+                $("#pm").text(0);
+            })
+
+            // 메뉴 별 링크
+            var gogo = document.getElementsByName("gogo");
+            gogo[0].addEventListener("click", function () {
+                location.href = "Lugstay_main.html";
+            })
+            gogo[1].addEventListener("click", function () {
+                location.href = "Lugstay_sbs.html";
+            })
+            gogo[2].addEventListener("click", function () {
+                location.href = "자주찾는질문.html";
+            })
+            gogo[3].addEventListener("click", function () {
+                location.href = "Lugstay_host.html";
+            })
+
+            // 기본 설정(지도 중심 표시, 매장 별 보관가능 갯수에 따른 색 설정)
+            for (var i = 0; i < name.length; i++) {
+                var a = $(name[i]).closest("li");
+                cl(a[0]);
+            }
+            infowindow[name.length - 1].setMap(null);
+            map.panTo(options.center);
+        })
+
+        // 검색 초기화 버튼
+        function reset() {
+            var text = document.getElementById("searchname");
+            var name = document.getElementsByClassName("name");
+            text.value = "";
+            for (var i = 0; i < name.length; i++) {
+                infowindow[i].setMap(null);
+            }
+            map.panTo(options.center);
+        }
+
+        // 인포윈도우에서 버튼 클릭
+        var stock;
+        function inbtn(th) {
+            // 각 가게별 보관 가능 갯수 불러오기
+            stock = $(th).prev().children().eq(1);
+            // 보관 가능 여부 판단
+            if (stock.text() == 0) {   // 불가능
+                alert("이미 보관이 꽉찼거나 보관할 수 없는 매장입니다.");
+            } else {            // 가능
+                // 물품 갯수 설정창 활성화
+                $("#countframe").css("visibility", "visible");
+            }
+        }
+
+        // 물품 갯수 설정 창의 확인 버튼
+        function outbtn() {
+            // 보관 가능 갯수
+            var stcount = parseInt(stock.text());
+            // 보관 할 갯수
+            var count = parseInt($("#pm").text());
+            if (count == 0) {                               // 보관가능 갯수가 0일 때
+                alert("보관할 물품의 갯수를 입력해주세요.");
+            } else if (stcount < count) {                   // 보관가능 갯수보다 많을 때.
+                alert("보관 가능한 개수를 초과했습니다.");
+            } else {                                        // 보관 성공
+                alert(count + "개 보관되었습니다");
+                // 인포윈도우 및 매장리스트의 색 설정
+                stock.text(stcount - count);
+                var name = document.getElementsByClassName("name");
+                var headname = $(".headname");
+                for (var i = 0; i < name.length; i++) {
+                    if (name[i].innerHTML == headname.text()) {
+                        var a = $(name[i]).closest("li");
+                        cl(a[0]);
+                    }
+                }
+            }
+        }
+
+        // 물품 갯수 설정 창에서 갯수 마이너스
+        function mcl() {
+            var a = document.getElementById("pm");
+            if (a.innerHTML > 0) {
+                a.innerHTML -= 1;
+            }
+        }
+
+        // 물품 갯수 설정 창에서 갯수 플러스
+        function pcl() {
+            var a = document.getElementById("pm");
+            if (a.innerHTML < 10) {
+                a.innerHTML = parseInt(a.innerHTML) + 1;
+            }
+        }
+    </script>
+</head>
+
+<body>
+    <div class="first">
+
+        <!-- 물품 갯수 설정 창 -->
+        <div id="countframe">
+            <div id="countframe2">
+                <img src="Image/bag.png" width="20%" style="padding-right: 20%;">
+                <img src="Image/minus_Icon.png" width="15%" onclick="mcl()" style="cursor: pointer;">
+                <span id="pm" style="padding-left: 5%; padding-right: 5%;">0</span>
+                <img src="Image/plus_Icon.png" width="15%" onclick="pcl()" style="cursor: pointer;">
+            </div>
+            <button onclick="outbtn()">확인</button>
+        </div>
+
+        <!-- 헤더-->
+        <header>
+            <div class="left">
+                <img src="https://www.lugstay.com/img/logotype.svg" name="gogo">
+            </div>
+            <ul class="left" id="mt">
+                <li class="left">물품 보관하러 가기</li>
+                <li class="left" name="gogo">서비스 가이드</li>
+                <li class="left" name="gogo">자주 찾는 질문</li>
+            </ul>
+
+            <span class="clear"></span>
+
+            <div class="right">
+                <ul class="right" id="mt2">
+                    <li class="right" id="imoji">≡</li>
+                    <li class="right">로그인</li>
+                    <li class="right" name="gogo">호스트 신청하기</li>
+                </ul>
+            </div>
+            <span class="clear"></span>
+        </header>
+
+        <!-- 검색 -->
+        <div class="search">
+            <div class="searchframe">
+                <!-- 매장이름으로 검색 -->
+                <div class="searcharea" style="width: 25%;">
+                    <img src="Image/location_Icon.png" style="width: 20px; height: 25px;">
+                    <input type="text" id="searchname" placeholder="매장이름으로 검색">
+                </div>
+                <!-- 초기화 버튼 -->
+                <div class="searcharea" id="resetbutton" style="width: 8%;">
+                    <span onclick="reset()" style="display: inline-block; margin-top: 0.8em;">초기화</span>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- 매장 목록 -->
+    <div class="storeframe">
+        <!-- 정렬 및 색 설며-->
+        <div class="sort">
+            <!-- 정렬 -->
+            <select style="border: 0px; font-size: 1.1em;">
+                <option>거리순</option>
+            </select>
+            <!-- 색 별 설명 -->
+            <ul class="colorlist">
+                <li>
+                    <div class="colorex" title="많음" style="background-color: rgb(19, 150, 255);"></div>
+                </li>
+                <li>
+                    <div class="colorex" title="보통" style="background-color: green;"></div>
+                </li>
+                <li>
+                    <div class="colorex" title="적음" style="background-color: #bbb;"></div>
+                </li>
+                <li>
+                    <div class="colorex" title="없음" style="opacity: .4; background-color: #bbb;"></div>
+                </li>
+            </ul>
+        </div>
+
+        <!-- 매장 리스트 -->
+        <div class="storelist">
+            <ul>
+                <!-- 매장 정보 -->
+                <li onclick="cl(this)" value="1">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/도원채.jpg">
+                            <div class="storeinfo">
+                                <div class="category">식당</div>
+                                <div class="name">미래에셋대우 도원채</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">10:00 ~ 18:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <!--  -->
+                <li onclick="cl(this)" value="2">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/블루보틀.jpg">
+                            <div class="storeinfo">
+                                <div class="category">카페</div>
+                                <div class="name">블루보틀</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">08:00 ~ 22:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="3">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/갓덴스시.jpg">
+                            <div class="storeinfo">
+                                <div class="category">식당</div>
+                                <div class="name">갓덴스시</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">14:00 ~ 22:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="4">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/불백당.PNG">
+                            <div class="storeinfo">
+                                <div class="category">식당</div>
+                                <div class="name">불백당</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">10:00 ~ 20:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="5">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/투썸플레이스.jpg">
+                            <div class="storeinfo">
+                                <div class="category">카페</div>
+                                <div class="name">투썸플레이스</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">08:00 ~ 22:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="6">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/스튜디오 디어퍼플.jpg">
+                            <div class="storeinfo">
+                                <div class="category">셀프/대여 스튜디오</div>
+                                <div class="name">스튜디오 디어퍼플</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">08:00 ~ 19:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="7">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/백부장집.jpg">
+                            <div class="storeinfo">
+                                <div class="category">식당</div>
+                                <div class="name">백부장집닭한마리</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">13:00 ~ 21:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="8">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/에리카플라워.jpg">
+                            <div class="storeinfo">
+                                <div class="category">꽃집</div>
+                                <div class="name">에리카플라워</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">08:00 ~ 14:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="9">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/호텔미드시티.jpg">
+                            <div class="storeinfo">
+                                <div class="category">호텔</div>
+                                <div class="name">호텔미드시티 명동</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">08:00 ~ 22:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="10">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/우육면관.jpg">
+                            <div class="storeinfo">
+                                <div class="category">식당</div>
+                                <div class="name">우육면관</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">10:00 ~ 19:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="11">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/청진옥.jpg">
+                            <div class="storeinfo">
+                                <div class="category">식당</div>
+                                <div class="name">청진옥</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">11:00 ~ 19:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="12">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/을지로신경외과.PNG">
+                            <div class="storeinfo">
+                                <div class="category">병원</div>
+                                <div class="name">을지로신경외과</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">09:00 ~ 18:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="13">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/이춘복참치.jpg">
+                            <div class="storeinfo">
+                                <div class="category">식당</div>
+                                <div class="name">이춘복 참치</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">10:00 ~ 18:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="14">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/스시소라.jpg">
+                            <div class="storeinfo">
+                                <div class="category">식당</div>
+                                <div class="name">스시소라</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">11:00 ~ 18:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="15">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/스튜디오 호가.jpg">
+                            <div class="storeinfo">
+                                <div class="category">셀프/대여 스튜디오</div>
+                                <div class="name">스튜디오 호가</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">08:00 ~ 19:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="16">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/종로돈부리.jpg">
+                            <div class="storeinfo">
+                                <div class="category">식당</div>
+                                <div class="name">종로돈부리</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">10:00 ~ 19:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="17">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/북해빙수.jpg">
+                            <div class="storeinfo">
+                                <div class="category">카페</div>
+                                <div class="name">북해빙수</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">08:00 ~ 22:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="18">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/가쯔야.jpg">
+                            <div class="storeinfo">
+                                <div class="category">식당</div>
+                                <div class="name">가쯔야</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">10:00 ~ 20:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="19">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/뚝배기집.jpg">
+                            <div class="storeinfo">
+                                <div class="category">식당</div>
+                                <div class="name">뚝배기집</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">09:00 ~ 18:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="20">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/약손명가.jpg">
+                            <div class="storeinfo">
+                                <div class="category">병원</div>
+                                <div class="name">약손명가</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">09:00 ~ 18:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="21">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/무교동북어국집.png">
+                            <div class="storeinfo">
+                                <div class="category">식당</div>
+                                <div class="name">무교동북어국집</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">09:00 ~ 19:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="22">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/스포짐.jpg">
+                            <div class="storeinfo">
+                                <div class="category">헬스장</div>
+                                <div class="name">스포짐</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">08:00 ~ 22:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+                <li onclick="cl(this)" value="23">
+                    <div class="box">
+                        <div class="box2">
+                            <img src="Image/매장/서울나은치과.jpg">
+                            <div class="storeinfo">
+                                <div class="category">병원</div>
+                                <div class="name">서울나은치과</div>
+                                <ul>
+                                    <li class="timediv">
+                                        <img src="Image/clock.png">
+                                        <span class="time">08:00 ~ 18:00</span>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="counting"></div>
+                        </div>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+    <!-- 맵 -->
+    <div class="map_all">
+        <div id="map"></div>
+    </div>
+    <script>
+        var container = document.getElementById('map');
+        var options = {
+            center: new kakao.maps.LatLng(37.56932549999999, 126.98600660000095),
+            level: 4
+        };
+        
+        var map = new kakao.maps.Map(container, options);
+
+        var positions = [
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">미래에셋대우 도원채</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">10</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.56734899132065, 126.98505189267806),
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">블루보틀</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">9</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.5694543759636, 126.97884369658172)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">갓덴스시</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">6</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.56952476323812, 126.98556062204867)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">불백당</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">0</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.569436887477565, 126.98495365472256)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">투썸플레이스</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">7</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.568520411071404, 126.98076655055974)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">스튜디오 디어퍼플</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">9</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.56691049428761, 126.99098821150517)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">백부장집닭한마리</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">5</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.57164782983845, 126.98253111996759)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">에리카플라워</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">2</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.56665149227075, 126.98023523937707)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">호텔미드시티 명동</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">6</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.56757646765615, 126.98088456774644)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">우육면관</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">0</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.56856629161456, 126.98610323937709)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">청진옥</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">1</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.571628160775745, 126.97944970179007)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">을지로신경외과</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">8</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.56715481855936, 126.98324810622631)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">이춘복 참치</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">10</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.57038707491143, 126.98493084138681)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">스시소라</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">10</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.570828790839066, 126.97986512591241)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">스튜디오 호가</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">6</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.566642619180094, 126.98891219638183)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">종로돈부리</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">5</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.56886182717213, 126.98726342720383)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">북해빙수</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">0</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.56762498384118, 126.98974882541677)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">가쯔야</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">8</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.568911778451856, 126.98589624154579)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">뚝배기집</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">3</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.569531901266664, 126.98849818209483)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">약손명가</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">6</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.56698637734833, 126.97935240288865)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">무교동북어국집</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">5</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.56768767579733, 126.97985101531606)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">스포짐</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">0</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.56644437965156, 126.9879687442946)
+            },
+            {
+                content:
+                    '<div class="frame">' +
+                    '<div class="headname">서울나은치과</div>' +
+                    '<div class="body">' +
+                    '<div class="info">' +
+                    '<div>물품보관 가능 갯수</div>' +
+                    '<div class="count">8</div>' +
+                    '</div>' +
+                    '<div onclick="inbtn(this)" class="button"><div class="font">></div></div>' +
+                    '</div>' +
+                    '</div>',
+                latlng: new kakao.maps.LatLng(37.569667899852185, 126.99078120140798)
+            }
+        ];
+
+        // 마커 및 마커별 인포윈도우 설정
+        var marker = new Array(positions.length);
+        var infowindow = new Array(positions.length);
+        for (var i = 0; i < positions.length; i++) {
+            marker[i] = new kakao.maps.Marker({
+                map: map,
+                position: positions[i].latlng
+            });
+
+            infowindow[i] = new kakao.maps.CustomOverlay({
+                content: positions[i].content,
+                map: map,
+                position: marker[i].getPosition()
+            });
+            infowindow[i].setMap(null);
+        }
+
+        // 마커별 마우스 이벤트
+        for (var i = 0; i < positions.length; i++) {
+            kakao.maps.event.addListener(marker[i], 'click', clickListener(i));
+        }
+
+        // 마우스 클릭 이벤트
+        function clickListener(index) {
+            return function () {
+                var name = document.getElementsByClassName("name");
+                var a = $(name[index]).closest("li");
+                cl(a[0]);
+            };
+        }
+
+        // 매장 리스트에서 매장 클릭 시
+        var j = 0;
+        function cl(th) {
+            // 매장을 지도 중심으로 표시
+            map.panTo(positions[th.value - 1].latlng);
+            // 매장의 인포윈도우 열기
+            infowindow[th.value - 1].setMap(map);
+            // 다른 매장들의 인포윈도우 닫기
+            for (var i = 0; i < positions.length; i++) {
+                if (i != (th.value - 1)) {
+                    infowindow[i].setMap(null);
+                }
+            }
+            for (var i = positions.length - 1; i > 0; i--) {
+                if (i != (th.value - 1)) {
+                    infowindow[i].setMap(null);
+                }
+            }
+            // 매장별 보관 가능 횟수에 따른 색 설정
+            var count = document.getElementsByClassName("count");
+            var head = document.getElementsByClassName("headname");
+            var n = parseInt(count[i].innerHTML);
+            if (n > 6) {
+                head[i].style.backgroundColor = "rgb(19, 150, 255)";
+            } else if (n > 3) {
+                head[i].style.backgroundColor = "green";
+            } else {
+                head[i].style.backgroundColor = "#bbb";
+            }
+
+            // 매장리스트에 매장별 보관 가능 갯수에 따른 색 표시
+            var counting = document.getElementsByClassName("counting");
+            var box = document.getElementsByClassName("box");
+            var btn = document.getElementsByClassName("button");
+            if (n > 6) {
+                counting[th.value - 1].style.backgroundColor = "rgb(19, 150, 255)";
+            } else if (n > 3) {
+                counting[th.value - 1].style.backgroundColor = "green";
+            } else if (n == 0) {
+                box[th.value - 1].closest("li").style.opacity = ".4";
+                counting[th.value - 1].style.backgroundColor = "white";
+            } else {
+                counting[th.value - 1].style.backgroundColor = "#bbb";
+            }
+        }
+
+    </script>
+</body>
+
+</html>
